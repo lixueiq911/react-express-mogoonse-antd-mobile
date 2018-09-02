@@ -1,6 +1,14 @@
 import React from 'react'
-import {Button} from 'antd-mobile'
-import 'antd-mobile/dist/antd-mobile.css'
+import {Button,List} from 'antd-mobile'
+//import 'antd-mobile/dist/antd-mobile.css'  
+// 安装 babel-plugin-import后 在package.json配置了 
+/* "plugins": [
+    ["import", { libraryName: "antd-mobile", style: "css" }] // `style: true` 会加载 less 文件
+   ]
+
+*/
+//就不需要引入CSS了，babel-plugin-import会按需加载
+
 class Hello extends React.Component{
 	constructor(props){
 		super( props )
@@ -22,14 +30,18 @@ class Hello extends React.Component{
 			<div>
 				<p> 一营 营长  {this.props.name }  打架好  </p>
 				<Button type='primary' onClick={this.addslider}>addSlide</Button>
-				<ul>
+				
+				<List renderHeader={ ()=>'List士兵列表'}>
 					{ this.state.slides.map( (v) =>{
 						//一定加上key 属性
-							return <li  key={v}> { v }</li>	
+							return <List.Item key='v'> {v}</List.Item>
 						}
 					)
 					}
-				</ul>
+					
+				</List>	
+					
+				
 			
 			</div>
 		)
