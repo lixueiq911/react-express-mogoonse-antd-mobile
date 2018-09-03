@@ -21,6 +21,14 @@ export function counter(state=0,action){
 export function addGun(){
     return {type:add_gun}
 }
+export function addGunAsync(){
+    return dispatch=>{
+        setTimeout(()=>{
+            dispatch(addGun());
+        },2000);
+
+    }
+}
 export function removeGun(){
     return {type:remove_gun}
 }
