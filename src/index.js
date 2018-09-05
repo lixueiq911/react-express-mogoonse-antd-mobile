@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore,applyMiddleware,compose } from 'redux'
 import thunk from 'redux-thunk'
 import { 
-    BrowserRouter , 
+    HashRouter , 
     Route ,    
     Redirect,
     Switch
@@ -13,7 +13,7 @@ import Auth from './Auth'
 import Dashboard from "./Dashboard";
 import reducers from './reducer'
 //import { counter } from './index.redux'
-
+import './config'
 
 const reduxDextools = window.devToolsExtension?window.devToolsExtension():f=>f;
 const store = createStore(reducers,compose(
@@ -33,7 +33,7 @@ const store = createStore(reducers,compose(
 // }
 ReactDOM.render(
 (<Provider  store={store} >
-    <BrowserRouter>  
+    <HashRouter>  
         <div>
             <Switch>
                 <Route path='/login' exact component={Auth}></Route>
@@ -41,7 +41,7 @@ ReactDOM.render(
                 <Redirect to='/dashboard'></Redirect>  
             </Switch>      
         </div>     
-    </BrowserRouter>
+    </HashRouter>
     
 </Provider>),document.getElementById('root')
 );

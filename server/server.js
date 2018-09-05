@@ -16,18 +16,18 @@ const User = mongoose.model('user', new mongoose.Schema({
 	
 }))
 //新增数据
-//User.create({
-//	name:'一米',
-//	age:20
-//},function(err,doc){
-//	if(!err){
-//		console.log( doc )
-//	}else{
-//		console.log( err )
-//	}
-//	
-//	
-//})
+// User.create({
+// 	name:'一米',
+// 	age:20
+// },function(err,doc){
+// 	if(!err){
+// 		console.log( doc )
+// 	}else{
+// 		console.log( err )
+// 	}
+	
+	
+// })
 const app = express();
 app.get('/',function(req,res){
 	
@@ -84,7 +84,7 @@ app.get('/delete',function(req,res){
 })
 
 app.get('/update',function(req,res){
-	//删除User
+	//更新
 	User.update({name:'千寻'},{"$set":{age:26}},function(err,doc){
 		if(!err){
 			
